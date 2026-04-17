@@ -4,8 +4,7 @@ import os
 
 app = Flask(__name__)
 
-client = OpenAI(api_key="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")
-
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
     audio = request.files['audio']
